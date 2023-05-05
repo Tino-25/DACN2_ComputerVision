@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="loading" style="display: none;">
+        <i class="fa-solid fa-spinner"></i>
+    </div>
+
+
+    <form action="/removeBG_act?bg_color=255" class="form-contact" method="post" enctype="multipart/form-data" style="display: none;">
+        {% csrf_token %}
+        <label for="avatar">Ảnh đại diện</label>
+        <input type="file" id="chosse_image" name="image_input">
+        <input type="submit" id="btn_submit_image" value="Gửi">
+    </form>
+
+
+
+    
+    <!-- thẻ bao chung -->
+    <div id="wrap">
+        <!-- thẻ chứa header -->
+        <div id="header">
+            <div class="header-logo">
+                <a href="/">
+                    <img src="https://pixlr.com/img/misc/bg-icon.svg" alt="Logo Remove BG" title="VKU Remove BG">
+                    Remove BG
+                </a>
+            </div>
+            <div class="header-account">
+                <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                    Đăng ký đăng nhập
+                </a>
+            </div>
+            <div class="header-prenium">
+                <a href="#">
+                    <i class="fa-solid fa-crown"></i>
+                    Try prenium
+                </a>
+            </div>
+            <div class="header-bell">
+                <a href="#">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+            </div>
+            <div class="header-list">
+                <a href="#">
+                    <i class="fa-solid fa-list"></i>
+                </a>
+
+                <!-- hover sẽ hiện ra -->
+                <div class="menu">
+                    <div class="arrow">
+                    </div>
+                    <h4 class="menu-title">
+                        ứng dụng web
+                    </h4>
+                    <div class="hr-css-sm"></div>
+                    <div class="row-basic list-app">
+                        <!-- item -->
+                        <div class="c-6">
+                            <div class="list-app__item">
+                                <img src="https://pixlr.com/img/misc/bg-icon.svg" alt="">
+                                <h6>Remove BG</h6>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="c-6">
+                            <div class="list-app__item">
+                                <img src="https://pixlr.com/img/misc/bg-icon.svg" alt="">
+                                <h6>Remove BG</h6>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="c-6">
+                            <div class="list-app__item">
+                                <img src="https://pixlr.com/img/misc/bg-icon.svg" alt="">
+                                <h6>Remove BG</h6>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br/>
+                    <!-- menu part 2 -->
+                    <h4 class="menu-title">
+                        Trợ giúp & học hỏi
+                    </h4>
+                    <div class="hr-css-sm"></div>
+                    <div class="row-basic list-app">
+                        <!-- item -->
+                        <div class="c-6">
+                            <div class="list-app__item">
+                                <i class="fa-brands fa-youtube"></i>
+                                <h6>Video hướng dẫn</h6>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="c-6">
+                            <div class="list-app__item">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <h6>Tìm hiểu & giáo dục</h6>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="c-6">
+                            <div class="list-app__item">
+                                <i class="fa-solid fa-question"></i>
+                                <h6>Liên hệ hỗ trợ</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- thẻ chứa body -->
+    <div id="body">
+        <div class="row body-wrap">
+            <div class="col body-main" id="body-main">
+                <div class="flaxbox" id="select-image-btn">
+                    <img src="./assets/image/vna_potal_olympic_mua_dong_bac_kinh_2022_my_gianh_hcv_truot_tuyet_tu_do_vuot_doc_va_chuong_ngai_vat_cua_nam_stand.png"
+                        alt="năng lượng tích cực">
+                    <div class="body-main__text">
+                        <i class="fa-solid fa-plus"></i>
+                        <p>Chọn ảnh</p>
+                    </div>
+                </div>
+            </div>
+            <div id="image-preview"></div>
+            <div class="col body-intro">
+                <h2>Xử lý nền ảnh</h2>
+                <div class="hr-css"></div>
+                <h4>By TinNgo</h4>
+                <p>
+                    Miễn phí và 100% tự động loại bỏ BG! Bấm một lần nhấp vào Xóa nền tự động chỉ trong vài giây!
+                </p>
+                <p>
+                    Trạng thái nghệ thuật của chúng tôi cho phép bạn xóa nền từ hình ảnh sản phẩm, danh sách thương mại
+                    điện tử, ảnh tự sướng, hình ảnh hồ sơ và những người khác mà không có công việc thủ công cồng kềnh.
+                    Hủy bỏ BG trên một số hình ảnh cùng một lúc, tinh chỉnh kết quả với các công cụ cắt chi tiết của
+                    chúng tôi.
+                </p>
+                <div class="open-photo" id="open-photo">
+                    <!-- <input type="file" name="" id="file-input" style="display: none;"> -->
+                    <span>Chọn ảnh</span>
+                    <!-- <img id="image-preview" src="#" alt="Ảnh xem trước"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- thẻ chứa footer -->
+    <div id="footer">
+
+    </div>
+
+    <script src="./assets/js/jquery-3.6.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/removeBG.js"></script>
+</body>
+
+</html>

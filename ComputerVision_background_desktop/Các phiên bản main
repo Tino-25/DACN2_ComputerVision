@@ -1,0 +1,90 @@
+**Bản 1
+
+import cv2
+
+import UI.hinhanh as hinhanh  # python -m PyQt5.uic.pyuic -x UI/untitled.ui -o UI/hinhanh.py -x
+from PyQt5 import QtGui, QtWidgets
+import sys
+
+# object path image
+import OBJ_img
+obj_img = OBJ_img.OBJ_img()  #đối tượng img để luân chuyển path hình ảnh chính
+obj_img_reset = OBJ_img.OBJ_img()  #đối tượng hỗ trợ reset ảnh
+
+app = QtWidgets.QApplication(sys.argv)
+MainWindow = QtWidgets.QMainWindow()
+ui = hinhanh.Ui_MainWindow()
+ui.setupUi(MainWindow)
+
+from tkinter import filedialog as fd
+def fun_ShowopenDialog():
+    filename = fd.askopenfilename()
+    print(filename)
+    if(filename != ''):
+        # first set enabled for all
+        ui.groupBox.setEnabled(True)
+        ui.groupBox_2.setEnabled(True)
+        ui.groupBox_4.setEnabled(True)
+        ui.groupBox_5.setEnabled(True)
+        ui.pushButton_reset.setEnabled(True)
+        ui.pushButtonsave.setEnabled(True)
+        obj_img.setimg(filename)
+        obj_img_reset.setimg(filename)
+
+        image_check = cv2.imread(filename)
+        if (image_check[1, 1][0] == image_check[1, 1][1] == image_check[1, 1][2]):
+            ui.groupBox_4.setEnabled(False)
+            ui.groupBox_5.setEnabled(False)
+    ui.label.setPixmap(QtGui.QPixmap(filename))
+    ui.label_3.setPixmap(QtGui.QPixmap(filename))
+    ui.label.setScaledContents(True)
+
+
+
+def giaodien():
+    #main window
+    MainWindow.setStyleSheet("QMainWindow{\n"
+                                 "    border-image: url(./assets/img/background.png);\n"
+                                 "}\n"
+                                 "\n"
+                                 "")
+    #đặt icon cho nút
+    ui.pushButton_tp_save.setStyleSheet("QPushButton {qproperty-icon: url(./assets/img/icon-save.ico);}")
+    ui.pushButton_brightness_save.setStyleSheet("QPushButton {qproperty-icon: url(./assets/img/icon-save.ico);}")
+    #set disabled and enabled(open image)
+    ui.pushButton.setEnabled(True)
+    ui.groupBox.setEnabled(False)
+    ui.groupBox_2.setEnabled(False)
+    ui.groupBox_4.setEnabled(False)
+    ui.groupBox_5.setEnabled(False)
+    ui.pushButton_reset.setEnabled(False)
+    ui.pushButtonsave.setEnabled(False)
+    #hiển thị ảnh đầu tiên
+    ui.label.setPixmap(QtGui.QPixmap("./assets/img/placeholder_img.png"))
+    ui.label_3.setPixmap(QtGui.QPixmap("./assets/img/placeholder_img.png"))
+    #QLabel
+    ui.label_4.setStyleSheet("QLabel {color : white; }")
+    ui.label_2.setStyleSheet("QLabel {color : white; }")
+    ui.label_5.setStyleSheet("QLabel {color : white; }")
+    ui.label_6.setStyleSheet("QLabel {color : white; }")
+    ui.label_7.setStyleSheet("QLabel {color : white; }")
+    #QGroupBox
+    ui.groupBox.setStyleSheet("QGroupBox {color : white; }")
+    ui.groupBox_2.setStyleSheet("QGroupBox {color : white; }")
+    ui.groupBox_4.setStyleSheet("QGroupBox {color : white; }")
+    ui.groupBox_5.setStyleSheet("QGroupBox {color : white; }")
+    #QPushButton
+    ui.pushButton.setStyleSheet("QPushButton { color: white; background-color: green; border-radius: 10px; font-weight: bold;}")
+    ui.pushButtonsave.setStyleSheet("QPushButton { color: white; background-color: green; border-radius: 10px; font-weight: bold;}")
+    ui.pushButton_reset.setStyleSheet("QPushButton { color: white; background-color: gray; border-radius: 10px; font-weight: bold;}")
+
+def mainMenu():
+    # xử lý các sự kiện click button
+    ui.pushButton.clicked.connect(fun_ShowopenDialog)
+    MainWindow.show()
+
+
+if __name__ == '__main__':
+    giaodien()
+    mainMenu()
+    sys.exit(app.exec_())  # để cho cửa sổ không bị tắt liền khi mới chạy được
