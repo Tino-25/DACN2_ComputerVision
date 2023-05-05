@@ -8,7 +8,10 @@ Ngoài ra còn 1 website dùng django để thực hiện các chức năng xóa
 CÁCH DÙNG
 
 1. Vào vscode chạy project API - chạy bằng terminal
+                                  - cd tới project cd thêm computer_vision
+                                   - nhập lệnh: python manage,py runserver
 
 2. Vào folder web và mở chạy file index - chỉ cần mở file index.html là ok
                                           - chạy với vscode
+                                          
 3. chạy file desktop app - vào pycharm và mở project lên và chạy file main.py
