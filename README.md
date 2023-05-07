@@ -5,6 +5,15 @@ Gồm có website (HTML, CSS, JS, Ajax - để get API, loading) , desktop app (
 Ngoài ra còn 1 website dùng django để thực hiện các chức năng xóa nền ảnh, làm mờ nền ảnh, làm xám nền ảnh, thay đổi nền ảnh, chức năng đăng nhập, đăng ký, xem lịch sử các ảnh đã xử lý
 - nhưng không có trong đây mà ở một kho khác
 
+Cách cài
+  - pip install djangorestframework
+  - thêm dòng
+            INSTALLED_APPS = [
+                # các ứng dụng khác...
+                'rest_framework',
+             ]
+  
+
 CÁCH DÙNG
 
 1. Vào vscode chạy project API - chạy bằng terminal
