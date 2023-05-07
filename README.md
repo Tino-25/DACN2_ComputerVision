@@ -6,12 +6,13 @@ Ngoài ra còn 1 website dùng django để thực hiện các chức năng xóa
 - nhưng không có trong đây mà ở một kho khác
 
 Cách cài
-  - pip install djangorestframework
-  - thêm dòng
-            INSTALLED_APPS = [
-                # các ứng dụng khác...
-                'rest_framework',
-             ]
+  - No module named 'rest_framework'
+      - pip install djangorestframework
+      - thêm dòng
+                INSTALLED_APPS = [
+                    # các ứng dụng khác...
+                    'rest_framework',
+                 ]
   
 
 CÁCH DÙNG
